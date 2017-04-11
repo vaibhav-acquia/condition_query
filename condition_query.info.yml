@@ -1,0 +1,5 @@
+name: Condition Query
+type: module
+description: "Adds condition plugin by query paramater"
+core: 8.x
+version: 8.0-dev

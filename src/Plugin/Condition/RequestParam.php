@@ -108,9 +108,9 @@ class RequestParam extends ConditionPluginBase implements ContainerFactoryPlugin
     $params = array_map('trim', explode("\n", $this->configuration['request_param']));
     $params = implode(', ', $params);
     if (!empty($this->configuration['negate'])) {
-      return $this->t('Do not return true on the following query parameters: @params', array('@params' => $params));
+      return $this->t('Do not return true on the following query parameters: @params', ['@params' => $params]);
     }
-    return $this->t('Return true on the following query parameters: @params', array('@params' => $params));
+    return $this->t('Return true on the following query parameters: @params', ['@params' => $params]);
   }
 
   /**

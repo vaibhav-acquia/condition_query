@@ -3,9 +3,16 @@ Condition Query
 
 --SUMMARY --
 
-Extends conditional plugin API to add URI Query Parameters to control the content visibility. Drupal core conditional plugin API provides the ability to control the visibility of content (block) using paths, etc. This module adds new conditional plugin to allow administrators to control the visibility of content using url query parameter.
+Extends conditional plugin API to add URI Query
+Parameters to control the content visibility.
+Drupal core conditional plugin API provides the ability to control
+the visibility of content (block) using paths, etc.
+This module adds new conditional plugin to allow administrators
+to control the visibility of content using url query parameter.
 
-This plugin can be used to show or hide blocks, contents etc based on query parameter. It supports query parameter with array ex: ?visibility[]=show
+This plugin can be used to show or hide blocks,
+contents etc based on query parameter.
+It supports query parameter with array ex: ?visibility[]=show
 
 List of features using condition plugins,
 1) Block
@@ -14,8 +21,10 @@ List of features using condition plugins,
     etc.
 
 Example usage:
-1) Display blocks if query parameter has "visibility=show" ( http:://www.example.com/?visibility=show )
-2) Hide all blocks if query parameter has "app=true" ( http:://www.example.com/?app=true)
+1) Display blocks if query parameter has "visibility=show"
+   ( http:://www.example.com/?visibility=show )
+2) Hide all blocks if query parameter has "app=true"
+   ( http:://www.example.com/?app=true)
 
 
 -- REQUIREMENTS --
@@ -33,7 +42,8 @@ None.
 * Configure visibility of block Administration » Structure » Block layout
    Configure block » Under Visibility add/update "Request Param"
 
-* "Negate the condition" can be used to reverse the condition, example : show the block if url do not have parameter
+* "Negate the condition" can be used to reverse the condition,
+   example : show the block if url do not have parameter
    http://www.example.com/?app=yes
 
 

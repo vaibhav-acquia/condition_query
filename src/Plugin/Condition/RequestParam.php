@@ -108,7 +108,7 @@ class RequestParam extends ConditionPluginBase implements ContainerFactoryPlugin
     }
     return $this->t('Return true on the following query parameters: @params', ['@params' => $params]);
   }
-  
+
   /**
    * {@inheritdoc}
    */
@@ -133,7 +133,8 @@ class RequestParam extends ConditionPluginBase implements ContainerFactoryPlugin
               return TRUE;
             }
           }
-        } elseif ($query_param_value == $value) {
+        }
+        elseif ($query_param_value == $value) {
           return TRUE;
         }
       }

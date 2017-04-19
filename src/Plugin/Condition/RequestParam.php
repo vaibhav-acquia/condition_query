@@ -1,8 +1,4 @@
 <?php
-/**
- * @file
- * Contains Drupal\visibility_query\Plugin\Condition\RequestParam.
- */
 
 namespace Drupal\condition_query\Plugin\Condition;
 
@@ -74,22 +70,22 @@ class RequestParam extends ConditionPluginBase implements ContainerFactoryPlugin
    * {@inheritdoc}
    */
   public function defaultConfiguration() {
-    return array('request_param' => '') + parent::defaultConfiguration();
+    return ['request_param' => ''] + parent::defaultConfiguration();
   }
 
   /**
    * {@inheritdoc}
    */
   public function buildConfigurationForm(array $form, FormStateInterface $form_state) {
-    $form['request_param'] = array(
+    $form['request_param'] = [
       '#type' => 'textarea',
       '#title' => $this->t('Query Parameters'),
       '#default_value' => $this->configuration['request_param'],
-      '#description' => $this->t("Specify the request parameters. Enter one parameter per line. Examples: %example_1 and %example_2.", array(
+      '#description' => $this->t("Specify the request parameters. Enter one parameter per line. Examples: %example_1 and %example_2.", [
         '%example_1' => 'visibility=show',
         '%example_2' => 'visibility[]=show',
-      )),
-    );
+      ]),
+    ];
     return parent::buildConfigurationForm($form, $form_state);
   }
 
@@ -112,7 +108,7 @@ class RequestParam extends ConditionPluginBase implements ContainerFactoryPlugin
     }
     return $this->t('Return true on the following query parameters: @params', ['@params' => $params]);
   }
-
+  
   /**
    * {@inheritdoc}
    */

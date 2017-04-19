@@ -50,4 +50,4 @@ None.
 -- CONTACT --
 
 Current maintainers:
-* Loganathan Harikrishnan (logan.H) - https://www.drupal.org/u/loganh
+* Loganathan Harikrishnan (logan.H) - https://www.drupal.org/u/loganh.

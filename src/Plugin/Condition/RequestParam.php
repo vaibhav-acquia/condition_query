@@ -122,19 +122,19 @@ class RequestParam extends ConditionPluginBase implements ContainerFactoryPlugin
     $request = $this->requestStack->getCurrentRequest();
     parse_str(preg_replace('/\n|\r\n?/', '&', $params), $request_params);
     if (!empty($request_params)) {
-      foreach ($request_params as $key => $value) {
-        if (is_array($value)) {
-          $value = $value[0];
+      foreach ($request_params as $key => $values) {
+        if (!is_array($values)) {
+          $values = [$values];
         }
         $query_param_value = $request->get($key);
         if (is_array($query_param_value)) {
           foreach ($query_param_value as $array_value) {
-            if ($array_value == $value) {
+            if (in_array($array_value, $values)) {
               return TRUE;
             }
           }
         }
-        elseif ($query_param_value == $value) {
+        elseif (in_array($query_param_value, $values)) {
           return TRUE;
         }
       }

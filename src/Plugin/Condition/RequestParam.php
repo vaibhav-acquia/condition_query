@@ -5,7 +5,6 @@ namespace Drupal\condition_query\Plugin\Condition;
 use Drupal\Component\Utility\Unicode;
 use Drupal\Core\Condition\ConditionPluginBase;
 use Drupal\Core\Form\FormStateInterface;
-use Drupal\Core\Path\AliasManagerInterface;
 use Drupal\Core\Plugin\ContainerFactoryPluginInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 use Symfony\Component\HttpFoundation\RequestStack;
@@ -21,13 +20,6 @@ use Symfony\Component\HttpFoundation\RequestStack;
 class RequestParam extends ConditionPluginBase implements ContainerFactoryPluginInterface {
 
   /**
-   * An alias manager to find the alias for the current system path.
-   *
-   * @var \Drupal\Core\Path\AliasManagerInterface
-   */
-  protected $aliasManager;
-
-  /**
    * The request stack.
    *
    * @var \Symfony\Component\HttpFoundation\RequestStack
@@ -37,8 +29,6 @@ class RequestParam extends ConditionPluginBase implements ContainerFactoryPlugin
   /**
    * Constructs a RequestPath condition plugin.
    *
-   * @param \Drupal\Core\Path\AliasManagerInterface $alias_manager
-   *   An alias manager to find the alias for the current system path.
    * @param \Symfony\Component\HttpFoundation\RequestStack $request_stack
    *   The request stack.
    * @param array $configuration
@@ -48,9 +38,8 @@ class RequestParam extends ConditionPluginBase implements ContainerFactoryPlugin
    * @param array $plugin_definition
    *   The plugin implementation definition.
    */
-  public function __construct(AliasManagerInterface $alias_manager, RequestStack $request_stack, array $configuration, $plugin_id, array $plugin_definition) {
+  public function __construct(RequestStack $request_stack, array $configuration, $plugin_id, array $plugin_definition) {
     parent::__construct($configuration, $plugin_id, $plugin_definition);
-    $this->aliasManager = $alias_manager;
     $this->requestStack = $request_stack;
   }
 
@@ -59,7 +48,6 @@ class RequestParam extends ConditionPluginBase implements ContainerFactoryPlugin
    */
   public static function create(ContainerInterface $container, array $configuration, $plugin_id, $plugin_definition) {
     return new static(
-      $container->get('path.alias_manager'),
       $container->get('request_stack'),
       $configuration,
       $plugin_id,

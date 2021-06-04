@@ -33,12 +33,12 @@ class RequestParamConditionTest extends KernelTestBase {
    *
    * @var array
    */
-  public static $modules = ['system', 'user', 'condition_query'];
+  protected static $modules = ['system', 'user', 'condition_query'];
 
   /**
    * {@inheritdoc}
    */
-  protected function setUp() {
+  protected function setUp() : void {
     parent::setUp();
 
     $this->installSchema('system', ['sequences']);
@@ -53,7 +53,7 @@ class RequestParamConditionTest extends KernelTestBase {
   /**
    * Tests the request param condition.
    */
-  public function testConditions() {
+  public function testConditions() : void {
 
     /* @var \Drupal\condition_query\Plugin\Condition\RequestParam $condition */
     $condition = $this->pluginManager->createInstance('request_param');

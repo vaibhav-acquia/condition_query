@@ -62,3 +62,4 @@ MAINTAINERS
 
 Current maintainers:
 * Loganathan Harikrishnan (logan.H) - https://www.drupal.org/u/loganh
+* Derek Wright (dww) - https://www.drupal.org/u/dww

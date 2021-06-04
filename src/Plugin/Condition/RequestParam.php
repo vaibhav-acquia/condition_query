@@ -2,7 +2,6 @@
 
 namespace Drupal\condition_query\Plugin\Condition;
 
-use Drupal\Component\Utility\Unicode;
 use Drupal\Core\Condition\ConditionPluginBase;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Plugin\ContainerFactoryPluginInterface;
@@ -102,7 +101,7 @@ class RequestParam extends ConditionPluginBase implements ContainerFactoryPlugin
    */
   public function evaluate() {
     // Convert params to lowercase.
-    $params = Unicode::strtolower($this->configuration['request_param']);
+    $params = mb_strtolower($this->configuration['request_param']);
     if (!$params) {
       return TRUE;
     }

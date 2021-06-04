@@ -114,6 +114,9 @@ class RequestParam extends ConditionPluginBase implements ContainerFactoryPlugin
           $values = [$values];
         }
         $query_param_value = $request->get($key);
+        if (!isset($query_param_value)) {
+          continue;
+        }
         if (is_array($query_param_value)) {
           foreach ($query_param_value as $array_value) {
             if (in_array($array_value, $values)) {
